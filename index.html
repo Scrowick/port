@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    
+    
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <!-- Barra de navegación -->
+        <nav class="navbar-desktop">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="" width="186px" height="55px">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+        <!-- Menú lateral -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+    </header>
+
+    <!-- Sección Banner -->
+    <section class="banner">
+        <div class="contenido-banner">
+            <h1 class="titulo-banner">Bienvenidos a Mi Sitio Web</h1>
+            <p>Descubre mis proyectos y más.</p>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="portafolio" class="proyectos">
+        <h2 class="titulo-proyectos">Innovación, creatividad y pasión. ¡Mira mis proyectos!</h2>
+        <div class="contenedor-proyectos"> 
+
+            <div class="proyecto" data-proyecto="1">
+                <img src="images/proyecto-1.webp" alt="Proyecto 1" class="imagen-proyecto">
+                <div class="info-proyecto">Proyecto: Alma</div>
+                <a href="proyecto-1.html" class="link-proyecto"></a>
+            </div>
+
+            <div class="proyecto" data-proyecto="2">
+                <img src="images/proyecto-2.webp" alt="Proyecto 2" class="imagen-proyecto">
+                <div class="info-proyecto">Proyecto: Rita</div>
+                <a href="proyecto-2.html" class="link-proyecto"></a>
+            </div>
+
+            <div class="proyecto" data-proyecto="3">
+                <img src="images/proyecto-3.webp" alt="Proyecto 3" class="imagen-proyecto">
+                <div class="info-proyecto">Proyecto: Melissa y Adrián</div>
+                <a href="proyecto-3.html" class="link-proyecto"></a>
+            </div>
+
+            <div class="proyecto" data-proyecto="4">
+                <img src="images/proyecto-4.webp" alt="Proyecto 4" class="imagen-proyecto">
+                <a href="#" class="#"></a>
+            </div>
+
+            <div class="proyecto" data-proyecto="5">
+                <img src="images/proyecto-5.webp" alt="Proyecto 5" class="imagen-proyecto">
+                <a href="#" class="#"></a>
+            </div>
+
+            <div class="proyecto" data-proyecto="6">
+                <img src="images/proyecto-6.webp" alt="Proyecto 6" class="imagen-proyecto">
+                <a href="#" class="#"></a>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <p></p>
+    </footer>
+
+    <script src="javascript/main.js"></script>
+    <script>
+        // Agregar desplazamiento suave a los enlaces con href de tipo #id
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();  // Prevenir la acción por defecto (desplazamiento inmediato)
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'  // Desplazamiento suave
+                    });
+                });
+            });
+        });
+        </script>
+
+     
+    
+</body>
+</html>

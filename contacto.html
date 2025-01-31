@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="images/icon.png" type="image/x-icon">
+
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <!-- Barra de navegación -->
+        <nav class="navbar-desktop">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="" width="186px" height="55px">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+        <!-- Menú lateral -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="index.html">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+    </header>
+
+    
+        <!-- Sección Banner -->
+    <section class="banner-contacto">
+        <div class="contenido-banner-contacto">
+            <h1 class="titulo-banner-contacto">Transforma Tu Espacio con Diseño Único</h1>
+            <p>Escríbeme y hagamos realidad tus ideas.</p>
+        </div>
+    </section>
+
+
+    <div class="contenido-contacto">
+        <div class="envolver-contacto animado-contacto aparecer-arriba-contacto">
+            <div class="formulario-contacto">
+                <form action="">
+                    <p>
+                        <label>Nombre Completo</label>
+                        <input type="text" name="nombre-completo">
+                    </p>
+                    <p>
+                        <label>Dirección de Correo Electrónico</label>
+                        <input type="email" name="correo">
+                    </p>
+                    <p>
+                        <label>Número de Teléfono</label>
+                        <input type="tel" name="telefono">
+                    </p>
+                    <p>
+                        <label>Asunto</label>
+                        <input type="text" name="asunto">
+                    </p>
+                    <p class="bloque-contacto">
+                        <label>Mensaje</label> 
+                        <textarea name="mensaje" rows="3"></textarea>
+                    </p>
+                    <p class="bloque-contacto">
+                        <button>
+                            Enviar
+                        </button>
+                    </p>
+                </form>
+            </div>
+            <div class="informacion-contacto">
+                <h4>Más Información</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>Instagram:</strong> @arq.ana.laura</li>
+                    <li><i class="fas fa-phone"></i> <strong>Teléfono:</strong> (686) 000 0000</li>
+                    <li><i class="fas fa-envelope-open-text"></i> <strong>Correo:</strong> @analaura.com</li>
+                </ul>
+                <p class="descripcion-contacto">Soy Ana Laura y me especializo en diseñar espacios únicos que combinan innovación y sostenibilidad. Mi objetivo es crear ambientes funcionales, estéticamente agradables y respetuosos con el medio ambiente. Si quieres transformar tu espacio con ideas frescas y eficaces, estoy aquí para ayudarte. Escríbeme y juntos haremos realidad tus ideas.</p>
+            </div>
+        </div>
+    </div>
+   
+
+    <script src="javascript/main.js"></script>
+    <script>
+        // Agregar desplazamiento suave a los enlaces con href de tipo #id
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+
+</body>
+</html>

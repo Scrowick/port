@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <title>Sobre Mí</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="images/icon.png" type="image/x-icon">
+
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <!-- Barra de navegación -->
+        <nav class="navbar-desktop">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="" width="186px" height="55px">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+        <!-- Menú lateral -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="index.html">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+    </header>
+
+    
+    <!-- Banner con clase 'banner-about' -->
+  
+
+    <div class="franja">
+        <div class="imagen">
+            <img src="images/imagen-about.webp" alt="Imagen cuadrada">
+        </div>
+        <div class="contenido">
+            <h1>Sobre mi</h1>
+    
+            <h2>Un Vistazo a Mi Vida Profesional</h2>
+            <p>Arquitecta egresada de la Universidad Autónoma de Baja California, me considero una persona creativa, sociable, trabajadora, responsable y
+                mantengo una actitud comprometedora para trabajos en equipo. Disfruto del diseño arquitectónico y del
+                interiorismo, aun que siempre estoy dispuesta y abierta a aprender otros ámbitos.</p>
+            <a href="contacto.html"><button class="button-about">Contáctame</button></a>
+        </div>
+    </div>
+    
+    <h1 class="text-cuadros">Herramientas y Tecnologías Profesionales</h1> <!-- Título arriba de los cuadros -->
+
+    <!-- Cuadros con imagen y barra de porcentaje -->
+    <div class="cuadros"> 
+        <div class="cuadro">
+            <img src="images/autodesk.svg" alt="Imagen 1">
+            <p>AutoCAD</p>
+            <div class="barra">
+                <div class="progress-bar" style="width: 80%;"></div>
+            </div>
+        </div>
+        <div class="cuadro">
+            <img src="images/sketchup.svg" alt="Imagen 2">
+            <p>SketchUp</p>
+            <div class="barra">
+                <div class="progress-bar" style="width: 70%;"></div>
+            </div>
+        </div>
+        <div class="cuadro">
+            <img src="images/revit.svg" alt="Imagen 3">
+            <p> Revit</p>
+            <div class="barra">
+                <div class="progress-bar" style="width: 90%;"></div>
+            </div>
+        </div>
+        <div class="cuadro">
+            <img src="images/enscape.svg" alt="Imagen 4">
+            <p>Enscape</p>
+            <div class="barra">
+                <div class="progress-bar" style="width: 60%;"></div>
+            </div>
+        </div>
+        <div class="cuadro">
+            <img src="images/photoshop.svg" alt="Imagen 5">
+            <p>Adobe Photoshop</p>
+            <div class="barra">
+                <div class="progress-bar" style="width: 85%;"></div>
+            </div>
+        </div>
+        <div class="cuadro">
+            <img src="images/Indesign.svg" alt="Imagen 6">
+            <p>Adobe InDesign</p>
+            <div class="barra">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+      
+    </div>
+    
+    <footer class="footer">
+        <p></p>
+    </footer>
+
+    <script src="javascript/main.js"></script>
+    <script>
+        // Agregar desplazamiento suave a los enlaces con href de tipo #id
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+
+</body>
+</html>

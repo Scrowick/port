@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <title>Proyeto: Alma</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <!-- Barra de navegación -->
+        <nav class="navbar-desktop">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="" width="186px" height="55px">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+        <!-- Menú lateral -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="index.html">Portafolio</a></li>
+                <li><a href="acerca.html">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+    </header>
+
+
+
+
+
+    
+    <div class="gallery">
+        <div class="image" onclick="openModal('img1')"><img src="images/Alma_page-1.webp" alt="Imagen 1" id="img1"></div>
+        <div class="image" onclick="openModal('img2')"><img src="images/Alma_page-2.webp" alt="Imagen 2" id="img2"></div>
+        <div class="image" onclick="openModal('img3')"><img src="images/Alma_page-3.webp" alt="Imagen 3" id="img3"></div>
+        <div class="image" onclick="openModal('img4')"><img src="images/Alma_page-4.webp" alt="Imagen 4" id="img4"></div>
+        <div class="image" onclick="openModal('img5')"><img src="images/Alma_page-5.webp" alt="Imagen 5" id="img5"></div>
+        <div class="image" onclick="openModal('img6')"><img src="images/Alma_page-6.webp" alt="Imagen 6" id="img6"></div>
+        <div class="image" onclick="openModal('img7')"><img src="images/Alma_page-7.webp" alt="Imagen 7" id="img7"></div>
+        <div class="image" onclick="openModal('img8')"><img src="images/Alma_page-8.webp" alt="Imagen 8" id="img8"></div>
+        <div class="image" onclick="openModal('img9')"><img src="images/Alma_page-9.webp" alt="Imagen 9" id="img9"></div>
+
+
+
+
+    </div>
+    
+    <!-- Modal -->
+<div class="popup-imagen" onclick="closeModal(event)">
+    <span class="close" onclick="closeModal(event)">×</span>
+    <img id="modal-img" src="" alt="">
+</div>
+
+    
+  
+    
+    
+    
+
+
+    <script src="javascript/main.js"></script>
+    <script>
+        // Agregar desplazamiento suave a los enlaces con href de tipo #id
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+
+</body>
+</html>

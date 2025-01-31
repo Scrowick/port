@@ -1,0 +1,1046 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #17120e;
+    ;
+    color: #333;
+    overflow-x: hidden;
+}
+
+
+header {
+    background-color: none;
+}
+
+/* Barra de navegación de escritorio */
+.navbar-desktop {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 100px 20px;
+    height: 100px;
+    position: fixed; /* Cambiar de absolute a fixed */
+    top: 0; /* Fija el navbar en la parte superior */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+    z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+    background-color: #17120e;
+    border-bottom: solid rgba(0, 0, 0, 0) 1px;
+}
+
+
+/* Contenedor para el logo y los links */
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+.navbar .logo {
+    margin-right: 20px; /* Espacio entre el logo y los links */
+}
+
+.navbar .logo img {
+    object-fit: contain;
+    max-height: 100%; /* Asegúrate de que el logo no sea más alto que el navbar */
+}
+
+/* Lista de enlaces */
+.navbar-desktop ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-desktop ul li {
+    padding: 0 20px;
+}
+
+.navbar-desktop ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    text-align: center;
+}
+
+.navbar-desktop ul li a:hover {
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+/* Estilos para la hamburguesa */
+.hamburger {
+    font-size: 30px;
+    background: none;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: none; /* Ocultamos la hamburguesa en pantallas grandes */
+}
+
+/* Estilos para el modo móvil */
+@media (max-width: 768px) {
+    /* Barra de navegación de escritorio oculta en pantallas móviles */
+    .navbar-desktop ul {
+        display: none; /* Ocultamos el menú de enlaces en modo móvil */
+    }
+
+    /* Mostrar la hamburguesa solo en pantallas móviles */
+    .hamburger {
+        display: block; /* Muestra el botón hamburguesa en pantallas móviles */
+        position: fixed;
+        top: -5px;  /* Asegura que la hamburguesa esté en la parte superior */
+        right: -35px; /* Posición correcta en el lado derecho */
+        font-size: 30px;
+        color: #ffffff;
+        border: none;
+        background: none;
+        cursor: pointer;
+        z-index: 900; /* Asegura que la hamburguesa esté encima de otros elementos */
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+}
+
+/* Barra lateral (Sidebar) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #17120e;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto; /* Barra desplazadora vertical */
+    max-height: 100vh; /* Limita la altura al 100% de la ventana */
+}
+
+@media (max-width: 480px) {
+    .sidebar ul li a {
+        font-size: 14px; /* Reducir tamaño del texto en pantallas pequeñas */
+        padding: 15px; /* Ajustar el padding */
+    }
+
+    .sidebar {
+        width: 200px; /* Reducir el ancho del sidebar en pantallas pequeñas */
+    }
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 20px 20px;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+}
+
+/* Estilo botón hamburguesa y overlay */
+button {
+    background-color: #000;
+    color: #efb810;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 70px;
+    width: 120px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+}
+
+/* no scroll */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Estilos para el banner */
+.banner {
+    position: relative; /* Necesario para que el pseudo-elemento se coloque sobre la imagen */
+    width: 100%; /* Asegura que el banner ocupe todo el ancho disponible */
+    height: 1080px; /* Establece una altura fija para el banner */
+}
+
+.banner img {
+    width: 100%;
+    height: 100%; /* Ajusta la altura según lo necesites */
+    object-fit: cover; /* Asegura que la imagen se recorte y cubra completamente */
+}
+.banner::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    bottom: 0; /* Coloca el degradado solo en la parte inferior */
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ajusta la altura del degradado */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Degradado de negro a transparente */
+    pointer-events: none; /* Asegura que los elementos detrás del pseudo-elemento puedan ser interactuados */
+}
+
+/* Estilo de la barra de navegación para que esté encima */
+.navbar-desktop {
+    
+    z-index: 2; /* Asegura que la navbar quede por encima del banner */
+}
+
+/* Barra de navegación */
+.navbar-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: none;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.contenido-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1; /* Aseguramos que el texto y la flecha estén por encima del banner */
+}
+
+.titulo-banner {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+/* Desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: none;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.active, .sidebar.active {
+    left: 0;
+    display: block;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* El banner ocupa toda la pantalla */
+    background-image: url("../images/banner.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #17120e); /* Degradado de transparente a negro */
+    z-index: 1; /* Asegura que el degradado esté encima de la imagen pero debajo del contenido */
+}
+.contenido-banner {
+    text-align: center;
+    z-index: 1; /* Asegura que el texto esté por encima de la imagen */
+}
+
+.titulo-banner {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.5em;
+}
+
+/* Sección de proyectos */
+.proyectos {
+    padding: 20px;
+    text-align: center; /* Centra el título de los proyectos */
+    background-color: #17120e;
+}
+
+/* Título de los proyectos */
+.titulo-proyectos {
+    font-size: 2em;
+    margin-bottom: 30px;
+    margin-top: 25px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 300;
+}
+
+/* Contenedor de los proyectos */
+.contenedor-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Se adapta al ancho */
+    gap: 5px; /* Espacio reducido entre las imágenes */
+    justify-items: center; /* Centra los proyectos */
+    align-items: center;
+    width: 100%;
+}
+
+/* Proyecto individual */
+.proyecto {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centra contenido */
+    align-items: center;
+    margin: 0; /* Elimina márgenes para evitar separación extra */
+}
+
+/* Imagen dentro del proyecto */
+.imagen-proyecto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0; /* Elimina márgenes extra en las imágenes */
+}
+
+/* Contenedor del texto "Ver más" */
+.info-proyecto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.26);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+/* Enlace que cubre todo el proyecto */
+.link-proyecto {
+    position: absolute;
+    inset: 0; /* Cubre todo el div */
+    z-index: 2; /* Se coloca por encima */
+}
+
+/* Mostrar el texto "Ver más" al hacer hover */
+.proyecto:hover .info-proyecto {
+    opacity: 1;
+}
+
+/* Responsividad: pantalla pequeña (móvil) */
+@media (max-width: 768px) {
+    .contenedor-proyectos {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+        gap: 20px; /* Espacio entre las imágenes en móviles */
+    }
+
+    .proyecto {
+        max-width: 100%; /* Asegura que no se estiren más de lo necesario */
+        aspect-ratio: 3 / 4; /* Mantiene la proporción 3:4 */
+        width: 100%; /* Asegura que ocupe el 100% de su contenedor */
+    }
+
+    /* Mantener visible el texto "Ver más" en dispositivos móviles */
+    .proyecto .info-proyecto {
+        opacity: 1 !important; /* Siempre visible en móvil */
+        pointer-events: auto; /* Asegura que el texto sea interactivo */
+    }
+}
+
+/* Responsividad: Pantallas medianas (tabletas) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .contenedor-proyectos {
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas medianas */
+        gap: 15px; /* Espacio entre las imágenes */
+    }
+
+    .proyecto {
+        max-width: 100%;
+        aspect-ratio: 3 / 4; /* Mantiene la proporción 3:4 */
+    }
+}
+
+/* Responsividad para pantallas grandes (escritorios y tabletas grandes) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .contenedor-proyectos {
+        grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+        gap: 20px; /* Espacio entre los proyectos */
+    }
+
+    .proyecto {
+        max-width: 100%; /* Asegura que las imágenes no se estiren más de lo necesario */
+        aspect-ratio: 3 / 4; /* Mantiene la proporción 3:4 */
+        width: 100%; /* Ocupa el 100% del contenedor */
+    }
+}
+
+/* Responsividad para pantallas extra grandes */
+@media (min-width: 1201px) {
+    .contenedor-proyectos {
+        grid-template-columns: repeat(6, 1fr); /* Seis columnas en pantallas grandes */
+        gap: 20px; /* Espacio entre los proyectos */
+    }
+
+    .proyecto {
+        max-width: 100%; /* Asegura que las imágenes no se estiren más de lo necesario */
+        aspect-ratio: 3 / 4; /* Mantiene la proporción 3:4 */
+        width: 100%; /* Ocupa el 100% del contenedor */
+    }
+}
+
+/* Responsividad para pantallas grandes (por ejemplo, pantallas de escritorio y tabletas grandes) */
+@media (min-width: 1200px) {
+    .contenedor-proyectos {
+        grid-template-columns: repeat(6, 1fr); /* Cuatro columnas en pantallas grandes */
+        gap: 20px; /* Espacio entre los proyectos */
+    }
+
+    .proyecto {
+        max-width: 100%; /* Asegura que las imágenes no se estiren más de lo necesario */
+        aspect-ratio: 3 / 4; /* Mantiene la proporción 3:4 */
+        width: 100%; /* Ocupa el 100% del contenedor */
+    }
+}
+
+/* Estilo Footer */
+.footer {
+    background-color: #17120e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    bottom: 0px;
+    width: 100%;
+    height: 40px;
+}
+
+/* Galería de imágenes */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    gap: 20px;
+    padding: 40px;
+    margin-top: 65px;
+}
+
+.image {
+    position: relative; /* Necesario para posicionar el fondo sobre la imagen */
+    overflow: hidden; /* Evita que el fondo sobresalga */
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Efecto suave para el zoom */
+    
+    
+}
+
+.image:hover img {
+    transform: scale(1.1); /* Zoom sobre la imagen al pasar el mouse */
+    
+}
+
+/* Fondo negro transparente al pasar el mouse */
+.image::before {
+    content: ''; /* Necesario para generar el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+    opacity: 0; /* Inicialmente no visible */
+    transition: opacity 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Mostrar el fondo negro al pasar el mouse */
+.image:hover::before {
+    opacity: 1; /* Hacer visible el fondo negro */
+}
+
+/* Modal (Popup) */
+.popup-imagen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden; /* Evita el desplazamiento del modal */
+    cursor: pointer;
+}
+
+/* Mostrar modal */
+.popup-imagen.show {
+    display: flex;
+}
+
+/* Estilos para la imagen dentro del modal */
+.popup-imagen img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain; /* Asegura que la imagen se mantenga proporcional */
+}
+
+/* Deshabilitar desplazamiento en el body cuando el modal está activo */
+body.modal-open {
+    overflow: hidden; /* Deshabilitar el desplazamiento de la página */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
+    }
+
+    .popup-imagen img {
+        max-width: 95%;
+        max-height: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr; /* 1 columna en móviles muy pequeños */
+        
+    }
+}
+
+
+/* Franja de contenido */
+.franja {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 5% 10%; /* Usar porcentajes para el padding */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.imagen {
+    max-width: 50%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    margin-left: 5px; /* Mueve la imagen un poco más a la derecha */
+    margin-bottom: 35px;
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    max-width: 700px;
+    max-height: 650px;
+    object-fit: cover;
+    margin-top: 80px;
+
+}
+
+/* Estilos de texto */
+.contenido h1 {
+    font-size: 26px; 
+    font-weight: 300; /* Definido una vez */
+    margin: 0 0 20px 0; /* Ajusta márgenes */
+    color: #fff;
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+.contenido h2 {
+    font-size: 50px; 
+    font-weight: 400;
+    margin-bottom: 20px; 
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;}
+
+.contenido p {
+    font-size: 17px;
+    line-height: 1.6; 
+    color: rgba(255, 255, 255, 0.8); 
+    margin-bottom: 10px; 
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Estilo del botón */
+.button-about {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0px 100px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 25px;
+    width: auto;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+}
+
+.button-about:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+/* Cuadros de contenido */
+.cuadros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 15px;
+}
+
+.cuadro {
+    width: 13%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid rgb(255, 255, 255);
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadro img {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
+
+.cuadro p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #ffffff;
+    font-size: 18px;
+
+}
+
+/* Barra de progreso */
+.barra {
+    width: 100%;
+    background-color: #ffffff4b;
+    height: 3px;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+/* Diseño Responsive */
+
+/* Pantallas grandes (Desktop) */
+@media (min-width: 1440px) {
+    .franja {
+        padding: 5% 10%;
+    }
+    .imagen {
+        max-width: 45%;
+        margin-bottom: 15px;
+        margin-top: 40px;
+    }
+    .contenido {
+        max-width: 45%;
+    }
+    .contenido h1 {
+        margin-top: 20px;
+    }
+}
+
+/* Tablets (Máximo 1024px) */
+@media (max-width: 1024px) {
+    .franja {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .imagen {
+        max-width: 80%;
+        margin-top: 40px;
+    }
+    .contenido {
+        max-width: 80%;
+    }
+    .cuadro {
+        width: 30%;
+    }
+    .button-about {
+        width: 90%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Móviles (Máximo 600px) */
+@media (max-width: 600px) {
+    .franja {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5% 10%;
+        justify-content: center;
+    }
+    .imagen {
+        max-width: 90%;
+        margin-bottom: 15px;
+        margin-top: 40px;
+    }
+    .contenido {
+        max-width: 90%;
+    }
+    .cuadro {
+        width: 48%;
+    }
+    .button-about {
+        width: 90%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .contenido h1 {
+        margin-top: 35px;
+    }
+}
+
+/* Teléfonos pequeños (Máximo 400px) */
+@media (max-width: 400px) {
+    .cuadro {
+        width: 100%;
+    }
+    .contenido h1 {
+        font-size: 2rem;
+        margin-top: 30px;
+    }
+    .contenido h2 {
+        font-size: 30px;
+    }
+    .banner-text p {
+        font-size: 0.9rem;
+    }
+    .button-about {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}
+
+.text-cuadros {
+    font-size: 26px; /* Tamaño de la fuente */
+    font-weight: 300; /* Peso de la fuente */
+    color: #fff; /* Color del texto */
+    text-align: center; /* Alineación centrada */
+    font-family: "Roboto", serif; /* Fuente */
+    font-weight: 400;
+}
+
+
+/* tabla de contacto*/
+
+.contenido-contacto {
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 0px; /* Ajusta según la distancia deseada */
+    min-height: calc(80vh - 100px); /* Mantiene la estructura responsiva */
+
+}
+
+.contenedor-contacto {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5em;
+}
+
+.ul-contacto {
+    list-style: none;
+    padding: 0;
+}
+
+.envolver-contacto > * {
+    padding: 1em;
+}
+
+.formulario-contacto {
+    background: #49292900;
+    color: #fff;
+
+}
+
+.formulario-contacto h3 {
+    color: #fff;
+}
+
+.informacion-contacto {
+    color: #fff;
+}
+
+.formulario-contacto form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.formulario-contacto form label {
+    display: block;
+}
+
+.formulario-contacto form p {
+    margin: 0;
+    padding: 1.5em;
+}
+
+.formulario-contacto form .bloque-contacto {
+    grid-column: 1 / 3;
+}
+
+.formulario-contacto form button,
+.formulario-contacto form input,
+.formulario-contacto form textarea {
+    width: 100%;
+    padding: .7em;
+    border: none;
+    background: none;
+    outline: 0;
+    color: #fff;
+    border-bottom: 1px solid #ffffff;
+}
+
+.formulario-contacto form button {
+    background: #fff;
+    border: 0;
+    text-transform: uppercase;
+    padding: 1em;
+    color:#000;
+}
+
+.formulario-contacto form button:hover,
+.formulario-contacto form button:focus {
+    background: #ddd;
+    color: #000;
+    outline: 0;
+}
+.informacion-contacto ul,
+.ul-contacto {
+    list-style: none; /* Elimina los puntos de las listas */
+    padding: 0;
+    margin: 0;
+}
+
+/* INFORMACIÓN DE CONTACTO */
+.informacion-contacto {
+    background: #36363669;
+}
+
+.informacion-contacto h4, 
+.informacion-contacto ul, 
+.informacion-contacto p {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+/* TAMAÑO GRANDE */
+@media(min-width: 700px) {
+    
+    .envolver-contacto {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .envolver-contacto > * {
+        padding: 2em;
+    }
+    .informacion-contacto h4,
+    .informacion-contacto ul,
+    .informacion-contacto p {
+        text-align: left;
+    }
+}
+
+textarea-contacto {
+    resize: none;
+}
+
+
+
+
+/* Banner contacto*/
+.banner-contacto {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* El banner ocupa toda la pantalla */
+    background-image: url("../images/banner-contacto.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-contacto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #17120e); /* Degradado de transparente a negro */
+    z-index: 1; /* Asegura que el degradado esté encima de la imagen pero debajo del contenido */
+}
+.contenido-banner-contacto {
+    text-align: center;
+    z-index: 1; /* Asegura que el texto esté por encima de la imagen */
+}
+
+.titulo-banner-contacto {
+    font-size: 3em;
+    color: #fff;
+    margin-top: 90px;
+}
+
+.banner-contacto p {
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.descripcion-contacto{
+    color: #fff;
+    line-height: 1.3; /* El valor por defecto es 1, puedes ajustarlo según lo que necesites */
+
+}
